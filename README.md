@@ -54,7 +54,9 @@
 ![](https://cdn.discordapp.com/attachments/1217104862043570196/1224629685191970836/image.png?ex=661e3045&is=660bbb45&hm=d7e78418df13d61ddb728d6ec18932722d8f0bdc97e5f5f66298ae7698969a4e&)
 ---
 
-
+---
+![commit](https://github.com/Godigroman/8.01/commit/b11849804927bf45ee496fdf26a375e32b48369b)
+---
 ---
 
 ### Задание 2
@@ -69,6 +71,9 @@
 4. `Делаю комит и пуш`
    ![](https://cdn.discordapp.com/attachments/1217104862043570196/1224366563474542743/image.png?ex=661d3b38&is=660ac638&hm=668d22c1eaeaad84750f1244bef943b6d77882a556d7a6df09a337de05d3305c&)
  
+---
+![commit](https://github.com/Godigroman/8.01/commit/cfb6ee39e0bda1392aeef0baf3fc1c2b5b448ccf)
+---
 
 ---
 
@@ -85,7 +90,9 @@
 8. `Сделайте коммит и пуш.`
    ![](https://cdn.discordapp.com/attachments/1217104862043570196/1224368980232376321/image.png?ex=661d3d78&is=660ac878&hm=fd46c4820688a20c093314ccad5583a5f5a0b318aa404e843a8c68d2ac1ad7f0&)
 
+
 ---
 ![](https://cdn.discordapp.com/attachments/1217104862043570196/1224632703924572170/image.png?ex=661e3315&is=660bbe15&hm=b3ef80769ce0a10d405ae713fda22e437e434661202505a4ce2650614a6e4e26&)
 ---
+
 ```
