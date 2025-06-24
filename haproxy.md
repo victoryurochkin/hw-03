@@ -51,3 +51,5 @@ listen web_tcp  # балансировка на 4 уровне (TCP)
     server s1 127.0.0.1:8888 check inter 3s
     server s2 127.0.0.1:9999 check inter 3s
 
+![Снимок экрана 2025-06-24 200438](https://github.com/user-attachments/assets/2ae48d51-9e75-4f93-9520-4e25ce29fa54)
+
