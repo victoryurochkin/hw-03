@@ -1,33 +1,31 @@
 #!/bin/bash
 
-# Директория для бэкапа
-BACKUP_DIR="/tmp/backup"
-# Исходная директория (домашняя)
-SOURCE_DIR="$HOME/"
-# Лог-файл
-LOG_FILE="/var/log/backup_home.log"
+# Параметры
+SRC="$HOME/"
+DEST="/tmp/backup/"
+LOGFILE="/var/log/backup_home.log"
 
-# Проверяем, существует ли директория для бэкапа
-mkdir -p "$BACKUP_DIR" || {
-    logger -t "home-backup" "Ошибка: не удалось создать $BACKUP_DIR"
-    exit 1
-}
+# Создание директории назначения при необходимости
+mkdir -p "$DEST"
 
-# Выполняем синхронизацию с rsync
-rsync -avh --delete --checksum --exclude='.*/' "$SOURCE_DIR" "$BACKUP_DIR" &>> "$LOG_FILE"
+# Выполнение зеркального резервного копирования
+rsync -a --delete "$SRC" "$DEST" >> "$LOGFILE" 2>&1
 
-# Проверяем код завершения rsync
+# Проверка статуса завершения и логгирование
 if [ $? -eq 0 ]; then
-    logger -t "home-backup" "Резервное копирование завершено успешно"
+    logger "Backup completed successfully"
+    echo "$(date): Backup completed successfully" >> "$LOGFILE"
 else
-    logger -t "home-backup" "Ошибка резервного копирования (код $?)"
+    logger "Backup failed"
+    echo "$(date): Backup failed" >> "$LOGFILE"
 fi
 
-sudo chmod +x /usr/local/bin/backup_home.sh
+chmod +x ~/backup_home.sh
+
 crontab -e
-0 3 * * * /usr/local/bin/backup_home.sh
 
-cat /var/log/backup_home.log
+0 2 * * * /home/USERNAME/backup_home.sh
 
-journalctl -t "home-backup"  # (systemd)
-grep "home-backup" /var/log/syslog  # (syslog)
+/home/USERNAME/backup_home.sh
+
+tail /var/log/backup_home.log
