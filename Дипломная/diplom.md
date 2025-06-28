@@ -164,7 +164,7 @@ me.existingClaim=prometheus-stack-pvc,grafana.persistentVolume.existingClaim=pro
 > Тестовое приложение на http.
 > 
 > ### [Файлы конфигураций kubespray](../img/img_diplom/mycluster)
-> ### [Файлы для prometheus-stack](../img/img_diplom/prometheus_stack)
+> ### [Файлы для prometheus-stack](../img/img_diplom/prometheus-stack)
 > 
 > ### [Workflow terraform](https://github.com/nikolai-vasilyev/Project_diplom/blob/main/.github/workflows/main.yml)
 
