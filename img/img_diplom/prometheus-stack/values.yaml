@@ -1,0 +1,13 @@
+grafana:
+  adminPassword: my-secure-password
+#   persistence:
+#     enabled: true
+#     existingClaim: kube-prometheus-stack-pvc
+# serves:
+#   persistence:
+#     enabled: true
+#     existingClaim: kube-prometheus-stack-pvc
+# alertmanager:
+#   persistence:
+#     enabled: true
+#     existingClaim: kube-prometheus-stack-pvc
