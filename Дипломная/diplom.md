@@ -202,6 +202,8 @@ me.existingClaim=prometheus-stack-pvc,grafana.persistentVolume.existingClaim=pro
 > 
 > #### [Репозиторий Dockerfile с HTML](https://github.com/nikolai-vasilyev/web.test.app)
 > #### [Workflow web-test-app](https://github.com/nikolai-vasilyev/web.test.app/blob/main/.github/workflows/main.yml)
+> #### [Ссылка test-app](http://51.250.32.92/)
+> #### [Ссылка на prometheus](http://51.250.38.89)
 
 
 Можно использовать [teamcity](https://www.jetbrains.com/ru-ru/teamcity/), [jenkins](https://www.jenkins.io/), [GitLab CI](https://about.gitlab.com/stages-devops-lifecycle/continuous-integration/) или GitHub Actions.
