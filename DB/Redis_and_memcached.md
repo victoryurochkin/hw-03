@@ -20,3 +20,5 @@
 ### Задание 2. Memcached
 
 <img width="814" height="274" alt="Снимок экрана 2025-07-20 232545" src="https://github.com/user-attachments/assets/f05ddef5-53a5-44dd-aee1-60fa479c6ea2" />
+
+### Задание 3. Удаление по TTL в Memcached
