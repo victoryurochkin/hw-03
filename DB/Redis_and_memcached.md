@@ -26,3 +26,7 @@
 <img width="520" height="328" alt="Снимок экрана 2025-07-22 223928" src="https://github.com/user-attachments/assets/2a6e5c69-f0a4-4e89-b0f7-89a93925ebd4" />
 
 <img width="895" height="246" alt="Снимок экрана 2025-07-22 223940" src="https://github.com/user-attachments/assets/5b8f3c87-0f5a-4cc6-99fc-cfc6467ec790" />
+
+### Задание 4.  Запись данных в Redis
+
+<img width="453" height="334" alt="Снимок экрана 2025-07-22 235551" src="https://github.com/user-attachments/assets/4a8cf992-c2ac-4d33-8754-c7825af07e24" />
