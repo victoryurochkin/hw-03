@@ -56,3 +56,23 @@ volumes:
 networks:
   elk_net:
     driver: bridge
+
+
+logstash.conf
+
+input {
+  file {
+    path => "/var/log/nginx/access.log"
+    start_position => "beginning"
+    sincedb_path => "/dev/null"
+  }
+}
+
+output {
+  elasticsearch {
+    hosts => ["http://elasticsearch:9200"]
+    index => "nginx-access-logs-%{+YYYY.MM.dd}"
+  }
+  stdout { codec => rubydebug }
+}
+
