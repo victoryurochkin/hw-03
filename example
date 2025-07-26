@@ -1,78 +1,8 @@
-version: '3.8'
-
-services:
-  elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch:8.12.0
-    container_name: elasticsearch
-    environment:
-      - discovery.type=single-node
-      - cluster.name=my_random_cluster_12345  # Замените на свой cluster_name
-      - xpack.security.enabled=false  # Отключаем security для упрощения
-    ports:
-      - "9200:9200"
-    volumes:
-      - es_data:/usr/share/elasticsearch/data
-    networks:
-      - elk_net
-
-  kibana:
-    image: docker.elastic.co/kibana/kibana:8.12.0
-    container_name: kibana
-    depends_on:
-      - elasticsearch
-    ports:
-      - "5601:5601"
-    environment:
-      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
-    networks:
-      - elk_net
-
-  logstash:
-    image: docker.elastic.co/logstash/logstash:8.12.0
-    container_name: logstash
-    depends_on:
-      - elasticsearch
-    volumes:
-      - ./logstash.conf:/usr/share/logstash/pipeline/logstash.conf
-      - /var/log/nginx:/var/log/nginx  # Монтируем логи Nginx
-    environment:
-      - LS_JAVA_OPTS=-Xmx256m -Xms256m
-    networks:
-      - elk_net
-
-  nginx:
-    image: nginx:latest
-    container_name: nginx
-    ports:
-      - "80:80"
-    volumes:
-      - /var/log/nginx:/var/log/nginx  # Логи Nginx
-    networks:
-      - elk_net
-
-volumes:
-  es_data:
-
-networks:
-  elk_net:
-    driver: bridge
-
-
-logstash.conf
-
-input {
-  file {
-    path => "/var/log/nginx/access.log"
-    start_position => "beginning"
-    sincedb_path => "/dev/null"
+filter {
+  grok {
+    match => { "message" => "%{COMBINEDAPACHELOG}" }
+  }
+  date {
+    match => [ "timestamp", "dd/MMM/yyyy:HH:mm:ss Z" ]
   }
 }
-
-output {
-  elasticsearch {
-    hosts => ["http://elasticsearch:9200"]
-    index => "nginx-access-logs-%{+YYYY.MM.dd}"
-  }
-  stdout { codec => rubydebug }
-}
-
