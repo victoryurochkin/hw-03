@@ -26,12 +26,22 @@
 
 `Приведите ответ в свободной форме........`
 
-1. `Заполните здесь этапы выполнения, если требуется ....`
-2. `Заполните здесь этапы выполнения, если требуется ....`
-3. `Заполните здесь этапы выполнения, если требуется ....`
-4. `Заполните здесь этапы выполнения, если требуется ....`
-5. `Заполните здесь этапы выполнения, если требуется ....`
-6. 
+[Screenshot](https://www.example.com)
+
+[Screenshot1](https://github.com/SLzDevOps/netology-education/blob/main/Screenshot_463.png)
+[Screenshot2](https://github.com/SLzDevOps/netology-education/blob/main/Screenshot_464.png)
+[Screenshot3](https://github.com/SLzDevOps/netology-education/blob/main/Screenshot_465.png)
+[Screenshot4](https://github.com/SLzDevOps/netology-education/blob/main/Screenshot_466.png)
+[Screenshot5](https://github.com/SLzDevOps/netology-education/blob/main/Screenshot_467.png)
+[Screenshot6](https://github.com/SLzDevOps/netology-education/blob/main/Screenshot_468.png)
+[Screenshot7](https://github.com/SLzDevOps/netology-education/blob/main/Screenshot_469.png)
+[Screenshot8](https://github.com/SLzDevOps/netology-education/blob/main/Screenshot_470.png)
+[Screenshot9](https://github.com/SLzDevOps/netology-education/blob/main/Screenshot_471.png)
+[Screenshot10](https://github.com/SLzDevOps/netology-education/blob/main/Screenshot_472.png)
+[Screenshot11](https://github.com/SLzDevOps/netology-education/blob/main/Screenshot_473.png)
+[Screenshot12](https://github.com/SLzDevOps/netology-education/blob/main/Screenshot_474.png)
+
+
 
 ```
 Поле для вставки кода...
