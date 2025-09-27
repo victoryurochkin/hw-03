@@ -37,7 +37,7 @@ sudo chmod +x /usr/local/bin/docker-compose
 ```
 
 При необходимости прикрепитe сюда скриншоты
-![Скриншот 1](https://github.com/AyratTukay/https-github.com-TukaevAR-7-1-ansible-hw/blob/main/img/Снимок%20экрана%20от%202025-09-27%2019-54-10.png)
+![Скриншот 1] (https://github.com/AyratTukay/https-github.com-TukaevAR-7-1-ansible-hw/blob/main/img/Снимок%20экрана%20от%202025-09-27%2019-54-10.png)
 
 
 
