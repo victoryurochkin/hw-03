@@ -34,7 +34,7 @@ sudo chmod +x /usr/local/bin/docker-compose
 ```
 
 `
-![Скриншот №1](/home/ayrat/docker/https-github.com-TukaevAR-7-1-ansible-hw/https-github.com-TukaevAR-7-1-ansible-hw/img/img1.png)`
+![Скриншот №1](/home/ayrat/docker/https-github.com-TukaevAR-7-1-ansible-hw/img/img1.png)`
 
 ---
 
