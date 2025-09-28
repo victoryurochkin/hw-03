@@ -29,15 +29,12 @@
 Docker Compose позволяет легко управлять несколькими контейнерами Docker, определенными в едином файле YAML (docker-compose.yml). Его использование позволяет мне меньше тратить времени на установку зависимых компонентов отдельно друг от друга. Все компоненты проекта собираются автоматически одним простым командным файлом.
 
 ```
-Поле для вставки кода...
 sudo curl -L "https://github.com/docker/compose/releases/download/v2.18.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
-....
-....
 ```
 
-При необходимости прикрепитe сюда скриншоты
-![Скриншот 1](/home/ayrat/docker/https-github.com-TukaevAR-7-1-ansible-hw/https-github.com-TukaevAR-7-1-ansible-hw/img/Снимок экрана от 2025-09-27 19-54-10.png)
+`
+![Скриншот №1](/home/ayrat/docker/https-github.com-TukaevAR-7-1-ansible-hw/https-github.com-TukaevAR-7-1-ansible-hw/img/img1.png)`
 
 ---
 
