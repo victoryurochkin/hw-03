@@ -115,16 +115,22 @@ docker compose up -d
 1. Создайте конфигурацию docker-compose для Pushgateway с именем контейнера <ваши фамилия и инициалы>-netology-pushgateway.
 2. Обеспечьте внешний доступ к порту 9091 c докер-сервера.
 
-```
-Поле для вставки кода...
-....
-....
-....
-....
-```
+**Решение 4**
 
-`При необходимости прикрепитe сюда скриншоты
-![Название скриншота](ссылка на скриншот)`
+В docker-compose добавил конфигурацию для Pushgateway.
+```
+ services:
+  pushgateway:
+    image: prom/pushgateway:v1.11.1
+    container_name: tukaevar-netology-pushgateway
+    ports:
+      - 9091:9091
+    networks:
+      - tukaevar-my-netology-hw
+    depends_on:
+      - prometheus
+    restart: unless-stopped
+```
 
 ---
 
