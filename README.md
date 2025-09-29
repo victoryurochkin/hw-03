@@ -71,16 +71,41 @@ networks:
 2. Добавьте необходимые тома с данными и конфигурацией (конфигурация лежит в репозитории в директории 6-04/prometheus ).
 3. Обеспечьте внешний доступ к порту 9090 c докер-сервера.
 
+**Решение 3**
+
 ```
-Поле для вставки кода...
-....
-....
-....
-....
+version: '3'
+services:
+  prometheus:
+    image: prom/prometheus:v3.6.0
+    container_name: tukaevar-netology-prometheus
+    command: --web.enable-lifecycle --config.file=/etc/prometheus/prometheus.yml
+    ports:
+      - 9090:9090
+    volumes:
+      - ./:/etc/prometheus
+      - prometheus-data:/prometheus
+    networks:
+      - tukaevar-my-netology-hw
+    restart: always
+
+volumes:
+  prometheus-data:
+networks:
+  tukaevar-my-netology-hw:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.5.0.0/16
+          gateway: 10.5.0.1
 ```
 
-`При необходимости прикрепитe сюда скриншоты
-![Название скриншота](ссылка на скриншот)`
+```
+docker compose up -d
+```
+
+`
+![Скрин 1](img/img21.png)`
 
 ---
 
@@ -172,6 +197,7 @@ networks:
 ### Задание 8
 
 1. Остановите и удалите все контейнеры одной командой.  
+
 В качестве решения приложите скриншот консоли с проделанными действиями.
 
 ```
