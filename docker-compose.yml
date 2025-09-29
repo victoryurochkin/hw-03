@@ -1,0 +1,12 @@
+version: '3'
+services:
+
+volumes:
+
+networks:
+  tukaevar-my-netology-hw:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.5.0.0/16
+        
