@@ -73,6 +73,7 @@ networks:
 
 **Решение 3**
 
+docker-compose.yml
 ```
 version: '3'
 services:
