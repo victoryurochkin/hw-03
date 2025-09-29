@@ -105,7 +105,8 @@ docker compose up -d
 ```
 
 `
-![Скрин 1](img/img21.png)`
+![Скрин 1](https-github.com-TukaevAR-7-1-ansible-hw/img
+/img21.png)`
 
 ---
 
