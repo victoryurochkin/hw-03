@@ -39,7 +39,7 @@ sudo chmod +x /usr/local/bin/docker-compose
 ### Задание 2
 
 Выполните действия и приложите текст конфига на этом этапе.
-Создайте файл docker-compose.yml и внесите туда первичные настройки:  
+Создайте файл docker-compose.yml и внесите туда первичные настройки:
 * version;  
 * services;  
 * volumes;   
