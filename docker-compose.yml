@@ -1,4 +1,4 @@
-version: '3'
+version: '2.39.43'
 services:
   prometheus:
     image: prom/prometheus:v3.6.0
@@ -22,8 +22,24 @@ services:
     depends_on:
       - prometheus
     restart: unless-stopped
+  grafana:
+    image: grafana/grafana
+    container_name: tukaevar-netology-grafana
+    environment:
+      GF_PATHS_CONFIG: /etc/grafana/custom.ini
+    ports:
+      - 80:3000
+    volumes:
+      - ./grafana:/etc/grafana
+      - grafana-data:/var/lib/grafana
+    networks:
+      - tukaevar-my-netology-hw
+    depends_on:
+      - prometheus
+    restart: unless-stopped
 volumes:
   prometheus-data:
+  grafana-data:
 networks:
   tukaevar-my-netology-hw:
     driver: bridge

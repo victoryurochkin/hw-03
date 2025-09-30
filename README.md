@@ -141,16 +141,67 @@ docker compose up -d
 3. Добавьте переменную окружения с путем до файла с кастомными настройками (должен быть в томе), в самом файле пропишите логин=<ваши фамилия и инициалы> пароль=netology.
 4. Обеспечьте внешний доступ к порту 3000 c порта 80 докер-сервера.
 
-```
-Поле для вставки кода...
-....
-....
-....
-....
-```
+**Решение 5**
 
-`При необходимости прикрепитe сюда скриншоты
-![Название скриншота](ссылка на скриншот)`
+docker-compose.yml
+```
+version: '3'
+services:
+  prometheus:
+    image: prom/prometheus:v3.6.0
+    container_name: tukaevar-netology-prometheus
+    command: --web.enable-lifecycle --config.file=/etc/prometheus/prometheus.yml
+    ports:
+      - 9090:9090
+    volumes:
+      - ./:/etc/prometheus
+      - prometheus-data:/prometheus
+    networks:
+      - tukaevar-my-netology-hw
+    restart: always
+  pushgateway:
+    image: prom/pushgateway:v1.11.1
+    container_name: tukaevar-netology-pushgateway
+    ports:
+      - 9091:9091
+    networks:
+      - tukaevar-my-netology-hw
+    depends_on:
+      - prometheus
+    restart: unless-stopped
+  grafana:
+    image: grafana/grafana
+    container_name: tukaevar-netology-grafana
+    environment:
+      GF_PATHS_CONFIG: /etc/grafana/custom.ini
+    ports:
+      - 80:3000
+    volumes:
+      - ./grafana:/etc/grafana
+      - grafana-data:/var/lib/grafana
+    networks:
+      - tukaevar-my-netology-hw
+    depends_on:
+      - prometheus
+    restart: unless-stopped
+volumes:
+  prometheus-data:
+  grafana-data:
+networks:
+  tukaevar-my-netology-hw:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.5.0.0/16
+          gateway: 10.5.0.1
+```
+customm.ini
+```
+[security]
+
+admin_user = tukaevar
+admin_password = netology
+```
 
 ---
 
@@ -161,16 +212,19 @@ docker compose up -d
 3. Настройте использование контейнерами одной сети.
 4. Запустите сценарий в detached режиме.
 
-```
-Поле для вставки кода...
-....
-....
-....
-....
-```
+**Решение 6**
 
-`При необходимости прикрепитe сюда скриншоты
-![Название скриншота](ссылка на скриншот)`
+Очерёдность запуска контейнеров, режимы перезапуска, использование контейнерами одной сети прописано в решении предыдушей задачи.
+
+Запускаю сценарий в detached режиме.
+```
+docker compose up -d
+```
+`
+![](img/img22.png)`
+
+`
+![](img/img23.png)`
 
 ---
 
@@ -187,17 +241,66 @@ docker compose up -d
 * скриншот команды docker ps после запуске docker-compose.yml;  
 * скриншот графика, постоенного на основе вашей метрики.  
 
+**Решение 7**
 
+docker-compose.yml
 ```
-Поле для вставки кода...
-....
-....
-....
-....
+version: '3'
+services:
+  prometheus:
+    image: prom/prometheus:v3.6.0
+    container_name: tukaevar-netology-prometheus
+    command: --web.enable-lifecycle --config.file=/etc/prometheus/prometheus.yml
+    ports:
+      - 9090:9090
+    volumes:
+      - ./:/etc/prometheus
+      - prometheus-data:/prometheus
+    networks:
+      - tukaevar-my-netology-hw
+    restart: always
+  pushgateway:
+    image: prom/pushgateway:v1.11.1
+    container_name: tukaevar-netology-pushgateway
+    ports:
+      - 9091:9091
+    networks:
+      - tukaevar-my-netology-hw
+    depends_on:
+      - prometheus
+    restart: unless-stopped
+  grafana:
+    image: grafana/grafana
+    container_name: tukaevar-netology-grafana
+    environment:
+      GF_PATHS_CONFIG: /etc/grafana/custom.ini
+    ports:
+      - 80:3000
+    volumes:
+      - ./grafana:/etc/grafana
+      - grafana-data:/var/lib/grafana
+    networks:
+      - tukaevar-my-netology-hw
+    depends_on:
+      - prometheus
+    restart: unless-stopped
+volumes:
+  prometheus-data:
+  grafana-data:
+networks:
+  tukaevar-my-netology-hw:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.5.0.0/16
+          gateway: 10.5.0.1
 ```
 
-`При необходимости прикрепитe сюда скриншоты
-![Название скриншота](ссылка на скриншот)`
+`
+![](img/img25.png)`
+
+`
+![](img/img24.png)`
 
 ---
 
@@ -207,15 +310,9 @@ docker compose up -d
 
 В качестве решения приложите скриншот консоли с проделанными действиями.
 
-```
-Поле для вставки кода...
-....
-....
-....
-....
-```
+**Решение 8**
 
-`При необходимости прикрепитe сюда скриншоты
-![Название скриншота](ссылка на скриншот)`
+`
+![](img/img26.png)`
 
 ---
