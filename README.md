@@ -220,11 +220,11 @@ admin_password = netology
 ```
 docker compose up -d
 ```
-`
-![](img/img22.png)`
 
-`
-![](img/img23.png)`
+![](img/img22.png)
+
+
+![](img/img23.png)
 
 ---
 
@@ -296,11 +296,11 @@ networks:
           gateway: 10.5.0.1
 ```
 
-`
-![](img/img25.png)`
 
-`
-![](img/img24.png)`
+![](img/img25.png)
+
+
+![](img/img24.png)
 
 ---
 
@@ -312,7 +312,7 @@ networks:
 
 **Решение 8**
 
-`
-![](img/img26.png)`
+
+![](img/img26.png)
 
 ---
