@@ -105,8 +105,8 @@ networks:
 docker compose up -d
 ```
 
-`
-![Скрин 1](img/img21.png)`
+
+![Скрин 1](img/img21.png)
 
 ---
 
