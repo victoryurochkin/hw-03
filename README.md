@@ -1,9 +1,9 @@
-# Домашнее задание к занятию "`Название занятия`" - `Фамилия и имя студента`
+# Домашнее задание к занятию "`Docker. Часть 2`" - `Тукаев Айрат`
 
 
 ### Инструкция по выполнению домашнего задания
 
-   1. Сделайте `fork` данного репозитория к себе в Github и переименуйте его по названию или номеру занятия, например, https://github.com/имя-вашего-репозитория/git-hw или  https://github.com/имя-вашего-репозитория/7-1-ansible-hw).
+   1. Сделайте `fork` данного репозитория к себе в Github и переименуйте его по названию или номеру занятия, например, https://github.com/имя-вашего-репозитория/git-hw или  https://github.com/имя-вашего-репозитория/7-1-ansible-hw.
    2. Выполните клонирование данного репозитория к себе на ПК с помощью команды `git clone`.
    3. Выполните домашнее задание и заполните у себя локально этот файл README.md:
       - впишите вверху название занятия и вашу фамилию и имя
@@ -24,94 +24,295 @@
 
 ### Задание 1
 
-`Приведите ответ в свободной форме........`
+Установите Docker Compose и опишите, для чего он нужен и как может улучшить лично вашу жизнь.
 
-1. `Заполните здесь этапы выполнения, если требуется ....`
-2. `Заполните здесь этапы выполнения, если требуется ....`
-3. `Заполните здесь этапы выполнения, если требуется ....`
-4. `Заполните здесь этапы выполнения, если требуется ....`
-5. `Заполните здесь этапы выполнения, если требуется ....`
-6. 
+**Решение 1**
+
+Docker Compose позволяет легко управлять несколькими контейнерами Docker, определенными в едином файле YAML (docker-compose.yml). Его использование позволяет мне меньше тратить времени на установку зависимых компонентов отдельно друг от друга. Все компоненты проекта собираются автоматически одним простым командным файлом.
 
 ```
-Поле для вставки кода...
-....
-....
-....
-....
+sudo curl -L "https://github.com/docker/compose/releases/download/v2.18.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
 ```
-
-`При необходимости прикрепитe сюда скриншоты
-![Название скриншота 1](ссылка на скриншот 1)`
-
-
 ---
 
 ### Задание 2
 
-`Приведите ответ в свободной форме........`
+Выполните действия и приложите текст конфига на этом этапе.
+Создайте файл docker-compose.yml и внесите туда первичные настройки:
+* version;  
+* services;  
+* volumes;   
+* networks.  
+При выполнении задания используйте подсеть 10.5.0.0/16. Ваша подсеть должна называться: <ваши фамилия и инициалы>-my-netology-hw. Все приложения из последующих заданий должны находиться в этой конфигурации.
 
-1. `Заполните здесь этапы выполнения, если требуется ....`
-2. `Заполните здесь этапы выполнения, если требуется ....`
-3. `Заполните здесь этапы выполнения, если требуется ....`
-4. `Заполните здесь этапы выполнения, если требуется ....`
-5. `Заполните здесь этапы выполнения, если требуется ....`
-6. 
+**Решение 2**
 
 ```
-Поле для вставки кода...
-....
-....
-....
-....
+version: '3'
+services:
+
+volumes:
+
+networks:
+  tukaevar-my-netology-hw:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.5.0.0/16
+        
 ```
-
-`При необходимости прикрепитe сюда скриншоты
-![Название скриншота 2](ссылка на скриншот 2)`
-
 
 ---
 
 ### Задание 3
 
-`Приведите ответ в свободной форме........`
+1. Создайте конфигурацию docker-compose для Prometheus с именем контейнера <ваши фамилия и инициалы>-netology-prometheus.
+2. Добавьте необходимые тома с данными и конфигурацией (конфигурация лежит в репозитории в директории 6-04/prometheus ).
+3. Обеспечьте внешний доступ к порту 9090 c докер-сервера.
 
-1. `Заполните здесь этапы выполнения, если требуется ....`
-2. `Заполните здесь этапы выполнения, если требуется ....`
-3. `Заполните здесь этапы выполнения, если требуется ....`
-4. `Заполните здесь этапы выполнения, если требуется ....`
-5. `Заполните здесь этапы выполнения, если требуется ....`
-6. 
+**Решение 3**
+
+docker-compose.yml
+```
+version: '3'
+services:
+  prometheus:
+    image: prom/prometheus:v3.6.0
+    container_name: tukaevar-netology-prometheus
+    command: --web.enable-lifecycle --config.file=/etc/prometheus/prometheus.yml
+    ports:
+      - 9090:9090
+    volumes:
+      - ./:/etc/prometheus
+      - prometheus-data:/prometheus
+    networks:
+      - tukaevar-my-netology-hw
+    restart: always
+
+volumes:
+  prometheus-data:
+networks:
+  tukaevar-my-netology-hw:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.5.0.0/16
+          gateway: 10.5.0.1
+```
 
 ```
-Поле для вставки кода...
-....
-....
-....
-....
+docker compose up -d
 ```
 
-`При необходимости прикрепитe сюда скриншоты
-![Название скриншота](ссылка на скриншот)`
+
+![Скрин 1](img/img21.png)
+
+---
 
 ### Задание 4
 
-`Приведите ответ в свободной форме........`
+1. Создайте конфигурацию docker-compose для Pushgateway с именем контейнера <ваши фамилия и инициалы>-netology-pushgateway.
+2. Обеспечьте внешний доступ к порту 9091 c докер-сервера.
 
-1. `Заполните здесь этапы выполнения, если требуется ....`
-2. `Заполните здесь этапы выполнения, если требуется ....`
-3. `Заполните здесь этапы выполнения, если требуется ....`
-4. `Заполните здесь этапы выполнения, если требуется ....`
-5. `Заполните здесь этапы выполнения, если требуется ....`
-6. 
+**Решение 4**
 
+В docker-compose добавил конфигурацию для Pushgateway.
 ```
-Поле для вставки кода...
-....
-....
-....
-....
+ services:
+  pushgateway:
+    image: prom/pushgateway:v1.11.1
+    container_name: tukaevar-netology-pushgateway
+    ports:
+      - 9091:9091
+    networks:
+      - tukaevar-my-netology-hw
+    depends_on:
+      - prometheus
+    restart: unless-stopped
 ```
 
-`При необходимости прикрепитe сюда скриншоты
-![Название скриншота](ссылка на скриншот)`
+---
+
+### Задание 5
+
+1. Создайте конфигурацию docker-compose для Grafana с именем контейнера <ваши фамилия и инициалы>-netology-grafana.
+2. Добавьте необходимые тома с данными и конфигурацией (конфигурация лежит в репозитории в директории 6-04/grafana.)
+3. Добавьте переменную окружения с путем до файла с кастомными настройками (должен быть в томе), в самом файле пропишите логин=<ваши фамилия и инициалы> пароль=netology.
+4. Обеспечьте внешний доступ к порту 3000 c порта 80 докер-сервера.
+
+**Решение 5**
+
+docker-compose.yml
+```
+version: '3'
+services:
+  prometheus:
+    image: prom/prometheus:v3.6.0
+    container_name: tukaevar-netology-prometheus
+    command: --web.enable-lifecycle --config.file=/etc/prometheus/prometheus.yml
+    ports:
+      - 9090:9090
+    volumes:
+      - ./:/etc/prometheus
+      - prometheus-data:/prometheus
+    networks:
+      - tukaevar-my-netology-hw
+    restart: always
+  pushgateway:
+    image: prom/pushgateway:v1.11.1
+    container_name: tukaevar-netology-pushgateway
+    ports:
+      - 9091:9091
+    networks:
+      - tukaevar-my-netology-hw
+    depends_on:
+      - prometheus
+    restart: unless-stopped
+  grafana:
+    image: grafana/grafana
+    container_name: tukaevar-netology-grafana
+    environment:
+      GF_PATHS_CONFIG: /etc/grafana/custom.ini
+    ports:
+      - 80:3000
+    volumes:
+      - ./grafana:/etc/grafana
+      - grafana-data:/var/lib/grafana
+    networks:
+      - tukaevar-my-netology-hw
+    depends_on:
+      - prometheus
+    restart: unless-stopped
+volumes:
+  prometheus-data:
+  grafana-data:
+networks:
+  tukaevar-my-netology-hw:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.5.0.0/16
+          gateway: 10.5.0.1
+```
+customm.ini
+```
+[security]
+
+admin_user = tukaevar
+admin_password = netology
+```
+
+---
+
+### Задание 6
+
+1. Настройте поочередность запуска контейнеров.
+2. Настройте режимы перезапуска для контейнеров.
+3. Настройте использование контейнерами одной сети.
+4. Запустите сценарий в detached режиме.
+
+**Решение 6**
+
+Очерёдность запуска контейнеров, режимы перезапуска, использование контейнерами одной сети прописано в решении предыдушей задачи.
+
+Запускаю сценарий в detached режиме.
+```
+docker compose up -d
+```
+
+![](img/img22.png)
+
+
+![](img/img23.png)
+
+---
+
+### Задание 7
+
+1. Выполните запрос в Pushgateway для помещения метрики <ваши фамилия и инициалы> со значением 5 в Prometheus: echo "<ваши фамилия и инициалы> 5" | curl --data-binary @- http://localhost:9091/metrics/job/netology.
+2. Залогиньтесь в Grafana с помощью логина и пароля из предыдущего задания.
+3. Cоздайте Data Source Prometheus (Home -> Connections -> Data sources -> Add data source -> Prometheus -> указать "Prometheus server URL = http://prometheus:9090" -> Save & Test).
+4. Создайте график на основе добавленной в пункте 5 метрики (Build a dashboard -> Add visualization -> Prometheus -> Select metric -> Metric explorer -> <ваши фамилия и инициалы -> Apply.
+
+В качестве решения приложите:
+
+* docker-compose.yml целиком;  
+* скриншот команды docker ps после запуске docker-compose.yml;  
+* скриншот графика, постоенного на основе вашей метрики.  
+
+**Решение 7**
+
+docker-compose.yml
+```
+version: '3'
+services:
+  prometheus:
+    image: prom/prometheus:v3.6.0
+    container_name: tukaevar-netology-prometheus
+    command: --web.enable-lifecycle --config.file=/etc/prometheus/prometheus.yml
+    ports:
+      - 9090:9090
+    volumes:
+      - ./:/etc/prometheus
+      - prometheus-data:/prometheus
+    networks:
+      - tukaevar-my-netology-hw
+    restart: always
+  pushgateway:
+    image: prom/pushgateway:v1.11.1
+    container_name: tukaevar-netology-pushgateway
+    ports:
+      - 9091:9091
+    networks:
+      - tukaevar-my-netology-hw
+    depends_on:
+      - prometheus
+    restart: unless-stopped
+  grafana:
+    image: grafana/grafana
+    container_name: tukaevar-netology-grafana
+    environment:
+      GF_PATHS_CONFIG: /etc/grafana/custom.ini
+    ports:
+      - 80:3000
+    volumes:
+      - ./grafana:/etc/grafana
+      - grafana-data:/var/lib/grafana
+    networks:
+      - tukaevar-my-netology-hw
+    depends_on:
+      - prometheus
+    restart: unless-stopped
+volumes:
+  prometheus-data:
+  grafana-data:
+networks:
+  tukaevar-my-netology-hw:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.5.0.0/16
+          gateway: 10.5.0.1
+```
+
+
+![](img/img25.png)
+
+
+![](img/img24.png)
+
+---
+
+### Задание 8
+
+1. Остановите и удалите все контейнеры одной командой.  
+
+В качестве решения приложите скриншот консоли с проделанными действиями.
+
+**Решение 8**
+
+
+![](img/img26.png)
+
+---
