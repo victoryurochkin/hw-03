@@ -63,9 +63,9 @@
 
 `Добавим нашим узам ранее созданный шаблон`
 
-<img width="1919" height="994" alt="Screenshot_7" src="https://github.com/user-attachments/assets/17969b0b-9f49-498c-926b-13db08bc8cbc" />
+<img width="1919" height="998" alt="Screenshot_3" src="https://github.com/user-attachments/assets/ab2f0320-72af-4bb5-9505-86efba11b047" />
 
-<img width="1919" height="996" alt="Screenshot_8" src="https://github.com/user-attachments/assets/88c30f17-2d2b-45ed-a55c-e0617970ed1a" />
+<img width="1919" height="1001" alt="Screenshot_4" src="https://github.com/user-attachments/assets/947430c6-dfee-4711-a589-eacd80a1e0bc" />
 
 `смотрим отдаваемые узлами метрики`
 
@@ -94,7 +94,9 @@
 
 `Результат на скриншоте`
 
+<img width="1919" height="998" alt="Screenshot_5" src="https://github.com/user-attachments/assets/a439f930-7026-4bf3-9920-ccaf65e75680" />
 
+<img width="1919" height="994" alt="Screenshot_6" src="https://github.com/user-attachments/assets/3c1ff469-bd2d-4920-95f7-57053abf75aa" />
 
 
 
