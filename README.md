@@ -67,6 +67,8 @@
 
 <img width="1919" height="1001" alt="Screenshot_4" src="https://github.com/user-attachments/assets/947430c6-dfee-4711-a589-eacd80a1e0bc" />
 
+<img width="1919" height="999" alt="Screenshot_7" src="https://github.com/user-attachments/assets/4d9fae55-03ed-4e84-b6c6-596b410905f2" />
+
 `смотрим отдаваемые узлами метрики`
 
 <img width="1919" height="995" alt="Screenshot_9" src="https://github.com/user-attachments/assets/91e2e5a0-0feb-48bf-abc7-2565c9fbf81f" />
