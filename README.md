@@ -6,8 +6,6 @@
 
 `1. Создаём шаблоны`
 
-`При необходимости прикрепитe сюда скриншоты
-![Название скриншота 1](ссылка на скриншот 1)`
 <img width="1919" height="990" alt="Screenshot_1" src="https://github.com/user-attachments/assets/4b12474a-6b92-4b4b-863f-bbfca63cc616" />
 
 
